@@ -52,6 +52,7 @@ namespace Calculator
             Button button = (Button)sender;
             string pressed = button.Text;
             mathOperator = pressed;
+            this.operationText.Text = firstNumber.ToString()+mathOperator;
         }
         
         // Click racine carré
@@ -67,6 +68,7 @@ namespace Calculator
                 if (tempResult.Length > 10)
                     tempResult = tempResult.Substring(0, 10);
                 this.resultText.Text += tempResult;
+                this.operationText.Text = "√" + number.ToString();
             }
         }
 
@@ -77,6 +79,7 @@ namespace Calculator
             secondNumber = 0;
             currentState = 1;
             this.resultText.Text = "0";
+            this.operationText.Text = "";
         }
 
         //Calculer
@@ -105,6 +108,7 @@ namespace Calculator
 
                 firstNumber = result;
                 this.resultText.Text = result.ToString("N0");
+                this.operationText.Text += secondNumber.ToString();
                 currentState = -1;
             }
         }
